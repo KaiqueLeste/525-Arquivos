@@ -1,0 +1,9 @@
+---
+- name: Instala o pacote NGINX
+  hosts: all
+  tasks:
+    - name: Instala o NGINX em servidores
+      package:
+        name: nginx
+        state: present
+
