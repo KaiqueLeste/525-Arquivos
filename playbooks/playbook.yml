@@ -1,0 +1,26 @@
+---
+- name: Playbook Teste
+  hosts: all
+  tasks: 
+    - name: Instala o servidor Web em servidores da familia Debian 
+      apt: 
+        name: apache2
+        state: absent
+      when: ansible_os_family == 'Debian'
+
+    - name: Instala o servidor Web em servidores da familia RedHat
+      yum:
+        name: httpd
+        state: absent
+      when: ansible_os_family == 'RedHat'
+
+    - name: Copia o index
+      copy:
+        src: index.html
+        dest: /var/www/html/index.html
+
+#    - name: Reinicia o servidor web
+#      service:
+#        name: httpd
+#        state: restarted
+#      when: ansible_os_family == 'RedHat'
