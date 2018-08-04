@@ -1,8 +1,0 @@
----
-- name: Puppet
-  hosts: all
-
-  tasks:
-    - include: repo.yml
-#    - include: install.yml
-    - include: agent.yml
